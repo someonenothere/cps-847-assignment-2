@@ -5,9 +5,11 @@ node_js:
 
 services:
   - docker
+before_isntall:
+  - docker build --tag node-docker .
 
 script:
-  - docker build --tag node-docker .
+  - docker run node-docker
 
 deploy:
   provider: elasticbeanstalk
@@ -17,6 +19,8 @@ deploy:
   app: "test"
   env: "Test-env"
   bucket_name: "elasticbeanstalk-us-east-2-043536338768"
+  on:
+    branch: main
 
 after_deploy:
   - echo "done deploying"
