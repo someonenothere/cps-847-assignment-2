@@ -8,7 +8,6 @@ services:
 
 script:
   - docker build --tag node-docker .
-  - docker run node-docker
 
 deploy:
   provider: elasticbeanstalk
