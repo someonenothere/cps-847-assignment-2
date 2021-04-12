@@ -7,7 +7,7 @@ services:
   - docker
 
 script:
-  - docker build --tag node-docker
+  - docker build --tag node-docker .
   - docker run node-docker
 
 deploy:
