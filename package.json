@@ -4,9 +4,17 @@
   "private": true,
   "scripts": {
     "start": "npm run server",
-    "server": "http-server ./public --port=3000 -c-1 -o"
+    "server": "http-server ./public --port=3000 -c-1 -o",
+    "test": "mocha"
   },
   "dependencies": {
     "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/register": "^7.13.14",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0"
   }
 }

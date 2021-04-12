@@ -7,7 +7,12 @@ services:
   - docker
 
 before_install:
+  - npm install -g codecov
   - docker build .
+
+script:
+  - nyc --reporter=lcov mocha && codecov
+  - codecov
 
 deploy:
   provider: elasticbeanstalk

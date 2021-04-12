@@ -1,0 +1,32 @@
+Sending build context to Docker daemon  7.559MB
+Step 1/7 : FROM node:12.18.1
+ ---> f5be1883c8e0
+Step 2/7 : ENV NODE_ENV=production
+ ---> Running in 33167a8accc6
+Removing intermediate container 33167a8accc6
+ ---> 8b17ef948a6b
+Step 3/7 : WORKDIR /react-app
+ ---> Running in 2b3d421116cd
+Removing intermediate container 2b3d421116cd
+ ---> 9858ec5c23e4
+Step 4/7 : COPY ["package.json", "package-lock.json*", "./"]
+ ---> cdc3b58acda6
+Step 5/7 : RUN npm install --production
+ ---> Running in 981defa661e5
+added 30 packages from 40 contributors and audited 30 packages in 1.082s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+Removing intermediate container 981defa661e5
+ ---> 87fb9d92e4d8
+Step 6/7 : COPY . .
+ ---> ba6fc55d98dc
+Step 7/7 : CMD [ "npm", "start" ]
+ ---> Running in c660ea915618
+Removing intermediate container c660ea915618
+ ---> be65f2ba5c31
+Successfully built be65f2ba5c31
+Successfully tagged node-docker:latest

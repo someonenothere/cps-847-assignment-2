@@ -1,0 +1,35 @@
+The AWS lambda function was written in Node.js.
+
+The runtime chosen was a template of Node.js 14.x that was supported on AWS.
+
+The jist of lambda is that the function is written under a "handler" function.
+Every time the function is invoked by a trigger from lambda, it will pass it
+an event object containing data of the "provoker" I.e. a HTTP POST containing
+a json.
+
+This lambda function works as a very crude REST API/function as it takes in a 
+json in the body containing two fields a "first_name" field and a "last_name" 
+field. The function will then combine the "first_name" and "last_name" into one
+string that is returned in a json as "output" and the HTTP status code (which 
+is 200). Both are returned as a json in the body as we were unsure if json
+strings in the header would be fine. 
+
+If there was only one name field, either "first_name" or "last_name" it would
+return the only name and HTTP 200 code. If there was no body or any applicable
+fields relating to the names, a blank string in "output" would return with HTTP
+200. 
+
+To allow the lambda function to work when called, a trigger to API Gateway was
+added. This trigger was built with the REST API template provided by AWS. The 
+resource path was called "test" (as seen in the url) and the specific function/
+method pointed to fnlntest which was what the lambda function was named. Most 
+of the options on the provided templates were left default.
+
+To access the API it can be called from
+https://jxu5i6wupb.execute-api.us-east-2.amazonaws.com/test/fnlntest
+
+To test it with curl we used
+
+curl -v -X POST 'https://jxu5i6wupb.execute-api.us-east-2.amazonaws.com/test/fnlntest' \
+-H 'content-type: application/json' \
+-d '{"first_name" : "john", "last_name" : "doe"}'
