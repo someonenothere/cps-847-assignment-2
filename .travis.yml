@@ -10,10 +10,9 @@ services:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: "AKIAQUIXXZ5IGNSV2OM6"
+  access_key_id: $ACCESSKEYID
   secret_access_key:
-    secure: "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"
+    secure: "$SECRETACCESSKEY"
   region: "us-east-2"
   app: "test"
   env: "Test-env"
