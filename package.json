@@ -1,0 +1,12 @@
+{
+  "name": "node-docker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run server",
+    "server": "http-server ./public --port=3000 -c-1 -o"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
