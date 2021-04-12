@@ -11,7 +11,7 @@ before_install:
   - docker build .
 
 script:
-  - nyc --reporter=lcov mocha && codecov
+  - nyc --reporter=lcov mocha && codecov -t e880c575-6a1d-4b72-bdac-70e6b2211326
   - codecov
 
 deploy:
