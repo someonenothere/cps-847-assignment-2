@@ -19,7 +19,7 @@ deploy:
   env: "Test-env"
   bucket_name: "elasticbeanstalk-us-east-2-043536338768"
   on:
-  branch: master
+  branch: main
 
 after_deploy:
   - echo "done deploying"
