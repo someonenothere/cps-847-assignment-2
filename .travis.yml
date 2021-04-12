@@ -1,0 +1,25 @@
+language: node_js
+
+node_js:
+  - "12"
+
+sudo: required
+
+services:
+  - docker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "AKIAQUIXXZ5IGNSV2OM6"
+  secret_access_key:
+    secure: "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"
+  region: "us-east-2"
+  app: "test"
+  env: "Test-env"
+  bucket_name: "elasticbeanstalk-us-east-2-043536338768"
+  on:
+  branch: master
+
+after_deploy:
+  - echo "done deploying"
